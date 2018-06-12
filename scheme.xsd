@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.w3.org/2001/xml.xsd" namespace="http://www.w3.org/XML/1998/namespace" />
+  <xs:element name="articles.published">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="article.published" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="head">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="id">
+                      <xs:complexType>
+                        <xs:attribute name="scope"
+                          type="xs:string" />
+                        <xs:attribute name="pubdate"
+                          type="xs:dateTime" />
+                        <xs:attribute name="title"
+                          type="xs:string" />
+                        <xs:attribute name="issue"
+                          type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="meta">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="edition" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="body">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="body.head">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="attachments" />
+                          <xs:element name="headline">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="hl1">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="p" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="byline">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="author">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="personname">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="namefirst" type="xs:string" />
+                                            <xs:element name="namelast" type="xs:string" />
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="pageNumber" type="xs:int" />
+                        <xs:attribute ref="xml:lang" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="body.content">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="lead">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="body.p">
+                                  <xs:complexType>
+                                    <xs:attribute name="pageNumber"
+                                type="xs:int" />
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="body.p">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="p" type="xs:string" maxOccurs="unbounded" />
+                              </xs:sequence>
+                              <xs:attribute name="pageNumber" type="xs:int"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="body.end">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="tagline">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="authortagline">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="p" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="version" type="xs:double" />
+            <xs:attribute ref="xml:lang" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:double" />
+      <xs:attribute ref="xml:lang" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

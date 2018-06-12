@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="ArticlesUI.CollectionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ArticlesUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <ListView x:Name="lvCollection" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" SelectionChanged="lvCollection_SelectionChanged">
+            <ListView.View>             
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Source}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Source" Click="lvCollectionColumnHeader_Click">Krant</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Date}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Date" Click="lvCollectionColumnHeader_Click">Datum</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Words}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Words" Click="lvCollectionColumnHeader_Click">Woorden</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Title}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Title" Click="lvCollectionColumnHeader_Click">Titel</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>
